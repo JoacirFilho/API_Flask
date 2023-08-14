@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    <div><h1>Adicionar Tutor</h1></div>
+    
+        <form action="{{ url_for('create_tutor') }}" method="POST">
+
+            <input type="text"  name="name_tutor" placeholder="Nome do Tutor">
+            <button type="submit">Adicionar Tutor</button><br><br>
+
+        </form>
+
+        <a href="{{ url_for('index') }}">Voltar</a>
+
+{% endblock %}

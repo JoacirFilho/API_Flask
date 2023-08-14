@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Editar Pet</title>
+</head>
+<body>
+    <h1>Editar Pet</h1>
+    <form method="POST">
+        <label for="name_pet">Nome do Pet:</label>
+        <input type="text" name="name_pet" value="{{ pet.name_pet }}" required>
+        
+        <label for="pet_tutor">Tutor:</label>
+        <select name="pet_tutor">
+            {% for tutor in tutors %}
+            <option value="{{ tutor.id }}" {% if pet.tutor.id == tutor.id %}selected{% endif %}>{{ tutor.name_tutor }}</option>
+            {% endfor %}
+        </select>
+        
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

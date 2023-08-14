@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+    <div class="title"><h1>Adicionar Novo Pet</h1></div>
+        <form action="{{ url_for('create_pet') }}" method="POST">
+
+            <input type="text"  name="name_pet" placeholder="Nome do Pet">
+
+            <label for="pet_tutor">Tutor:</label>
+            <select id="pet_tutor" name="pet_tutor">
+
+                {% for tutor in tutors %}
+                <option value="{{ tutor.id }}">{{ tutor.name_tutor }}</option>
+                {% endfor %}
+
+            </select>
+
+            <button type="submit">Adicionar Pet</button><br><br>
+        </form>
+        <a href="{{ url_for('index') }}">Voltar</a>
+
+
+{% endblock %}

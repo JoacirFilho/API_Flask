@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+<div class="title">
+    <h1>Tutores</h1>
+</div>
+<ul>
+    {% for tutor in tutors %}
+    <li>
+        {{ tutor.name_tutor }}
+        <a class="editar" href="{{ url_for('editar_tutor', tutor_id=tutor.id) }}">Editar</a>
+        <a class="excluir" href="{{ url_for('excluir_tutor', tutor_id=tutor.id) }}">Excluir</a>
+    </li>
+    {% endfor %}
+</ul>
+<a class="criar" href="{{ url_for('create_tutor') }}">Adicionar novo Tutor</a>
+
+<div class="title">
+    <h1>Pets</h1>
+</div>
+
+<ul>
+    {% for pet in pets %}
+    <li>{{ pet.name_pet }}
+        <a class="editar" href="{{ url_for('editar_pet', pet_id=pet.id) }}">Editar</a>
+        <a class="excluir" href="{{ url_for('excluir_pet', pet_id=pet.id) }}">Excluir</a>
+    </li>
+    {% endfor %}
+</ul>
+<a class="criar" href="{{ url_for('create_pet') }}">Adicionar novo Pet</a>
+
+{% endblock %}
